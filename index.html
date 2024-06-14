@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>food app by om patil</title>
+	<style>
+	*{font-size:40px;}
+	body{background-color:#C7EA46;}
+	.bt{width:30%}
+	form{border:2px solid black;
+	width:800px;height:550px;padding:20px;
+	box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+	margin:auto;
+	backdrop-filter:blur(10px);	
+	border-radius:30px;
+	background:#7FFF00;
+	display:block;
+	padding:8px;}
+	input[type="radio"] {width:3%; height:0.6em;}
+	</style>
+</head>
+<body>
+<center>
+	<h1>Food You Like App</h1>
+	<form onsubmit="show()">
+		<input type="text"placeholder="enter your name" id="name"/>
+		</br></br>
+		<input type="radio"name="f"id="si" checked=true/>SouthIndian
+		<input type="radio"name="f"id="ni" checked=true/>NorthIndian
+		<input type="radio"name="f"id="ff" checked=true/>FastFood
+		</br></br>
+		<input type="submit"class="btn"/>
+	</form>
+	<h2 id="msg"/>
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name=document.getElementById("name");
+			let ni=document.getElementById("ni");
+			let si=document.getElementById("si");
+			let ff=document.getElementById("ff");
+			let msg=document.getElementById("msg");
+
+			if(name.value.trim()=="")
+			{
+				alert("Name Cannot Be Empty");
+				msg.innerHTML="";
+				name.focus();
+				return;
+			}
+
+
+			let choice="";
+			if(ni.checked)			choice="North Indian"
+			else if(si.checked)		choice="South Indian"
+			else if(ff.checked)		choice="Fast Food"
+
+			let ans="name=> "+name.value+ "  " +"choice=> "+choice;
+			msg.innerHTML = ans;
+		}
+	</script>
+</center>
+</body>
+</html>
